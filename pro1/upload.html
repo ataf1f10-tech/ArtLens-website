@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رفع صورة -ArtLens</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- شريط التنقل -->
+    <nav>
+        <ul>
+             <li><a href="index.html">الرئيسية</a></li>
+            <li><a href="about.html">من نحن</a></li>
+            <li><a href="gallery.html">المعرض</a></li>
+            <li><a href="services.html">الخدمات</a></li>
+            <li><a href="upload.html">رفع صورة</a></li>
+            <li><a href="portfoliol.html">أعمالي 1</a></li>
+            <li><a href="portfolio2.html">أعمالي 2</a></li>
+            <li><a href="contact.html">اتصل بنا</a></li>
+            <li><a href="login.html">تسجيل الدخول</a></li>
+        </ul>
+    </nav>
+
+    <section class="page">
+        <h2>رفع صورة</h2>
+        <p>اختار صورة من جهازك وسيتم عرضها هنا مباشرة.</p>
+
+        <input type="file" id="imageInput" accept="image/*">
+
+        <div class="preview-box">
+            <img id="previewImage" src="" alt="معاينة الصورة" style="display:none;">
+        </div>
+    </section>
+
+    <script>
+        const input = document.getElementById("imageInput");
+        const preview = document.getElementById("previewImage");
+
+        input.addEventListener("change", function() {
+            const file = this.files[0];
+            if (file) {
+                preview.src = URL.createObjectURL(file);
+                preview.style.display = "block";
+            }
+        });
+    </script>
+
+</body>
+</html>
